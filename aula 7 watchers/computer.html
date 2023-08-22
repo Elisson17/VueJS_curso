@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades Armazenadas</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<div id="watchers">
+
+    <input type="text"  v-model="country">
+
+</div>
+ 
+
+
+
+
+    <script>
+        let app = new Vue({
+el:'#watchers',
+data: {
+    country: 'brasil'
+},
+watch: {
+    country: function(newValue, oldValue){
+        console.log(newValue, oldValue);
+    }
+}
+
+
+
+        })
+    </script>
+</body>
+</html>
