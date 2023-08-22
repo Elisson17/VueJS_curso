@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-HTML</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="directives">
+
+        <div v-html="headerHTML" ></div>
+
+    </div>
+
+
+    <script>
+        let app = new Vue({
+            el: '#directives',
+            data:{
+                headerHTML: '<header> <h1 style="text-align:center;" > Treinamento </h1> </header>'
+            }
+        })
+    </script>
+</body>
+</html>

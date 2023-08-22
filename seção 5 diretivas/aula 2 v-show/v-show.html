@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-show</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+<div id="directives">
+
+<h1 v-show="isLogged">V-SHOW - Seja bem-vindo á area Confidencial </h1>
+
+<h1 v-if="isLogged">V-IF - Seja bem-vindo á area Confidencial </h1>
+
+
+
+
+
+</div>
+
+
+
+
+    <script>
+        let app = new Vue({
+el: '#directives',
+data:{
+    isLogged: true
+
+
+
+}
+
+
+
+        })
+    </script>
+</body>
+</html>

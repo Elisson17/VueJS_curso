@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-FOR</title>
+    <script src="../vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+</head>
+<body>
+    <div id="directives">
+        <h2>Cidades do mundo</h2>
+<ol>
+   <!-- <li v-for="city in cities" >{{city}}</li> -> Array -->
+<li v-for="item in cities">
+    {{item.city}} - {{item.country}}
+</li>
+</ol>
+
+<h2>Grandes filmes clássicos</h2>
+<ul><li v-for="(picture, index) in movies" >
+    {{index}} - {{picture}}
+
+</li></ul>
+
+<h2>Empresa</h2>
+<p v-for="(value, key,index) in company" >{{key}} : {{value}}</p>
+
+
+
+
+    </div>
+    <script>
+        let app = new Vue({
+el: '#directives',
+data:{
+   // cities: ['New york','São paulo','Londres','Rio de Janeiro'] -> array
+   cities: [{
+    city: 'New York',
+    country: 'EUA'
+   },{
+    city: 'São Paulo',
+    country: 'Brasil'
+   },{
+    city: 'Londres',
+    country: 'Inglaterra'
+   },{
+    city: 'Rio de Janeiro',
+    country: 'Brasil'
+   }],
+   movies: ['Star wars','Jurassic Park','De volta para o futuro']
+   ,company: {
+    name: 'facebook',
+    ano: 2004,
+    creater:'Mark'
+   }
+}
+
+        })
+    </script>
+</body>
+</html>
