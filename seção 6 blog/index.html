@@ -6,7 +6,10 @@
     <title>Desafio do blog</title>
     <script src="vue.js"></script>
     <style>
-*{
+        *{
+           
+        }
+#posts{text-align: center;
 }img{
     margin: auto;
     width: 390px;
@@ -16,15 +19,37 @@ display: flex;}
 </head>
 <body>
 
-<head id="head">
-   <button @click="" >Login</buttom>
-  
+<img src="logo.png">
 
-</head>
+
 <div id="directive">
 
+<head>
+    <ul>
+
+        <li style="float:right;list-style-type: none;"><a href="#" @click="butaoLogin" v-if="logador" key="logado" >Fazer Login</a>
+
+
+<div v-else key="naologado">
+    Bem vindo {{username}}
+<a href="#" @click="butaoLogin" >Fazer Logout</a>
+</div> </li>
+
+    </ul>
+</head>
+<div id="posts" class="posts" v-for="posteres in post">
+
+<img :src="posteres.img" alt="">
+{{posteres.titu}}
+<p>
+    {{posteres.descri}}
+</p>
+
+
 </div>
-<img src="logo.png">
+
+
+</div>
 
 
 
@@ -32,13 +57,23 @@ display: flex;}
 
     <script>
         let app = new Vue({
-           el:'#head'
+           el:'#directive'
            ,data:{
+logador: true
+,username: 'Elisson',
+post:[{
+    img:'/seção 6 blog/ECX-1909_Hero_PostgreSQL_600x400@2x.png',
+titu:'PostgreSQL'
+,descri:'PostgreSQL é um poderoso sistema de banco de dados relacional de objeto de código aberto com mais de 35 anos de desenvolvimento ativo que lhe rendeu uma forte reputação de confiabilidade, robustez de recursos e desempenho.'
+        },{img:'Ruby_On_Rails_Logo.svg.png',
+            titu:'Ruby on Rails',
+            descri:'Rails é um framework full-stack. Ele vem com todas as ferramentas necessárias para criar aplicativos da web incríveis tanto no front quanto no back-end'
 
-
-
+        }]
         },methods:{
-
+            butaoLogin() {
+                        this.logador = !this.logador;
+                    }
         }
         })
 
