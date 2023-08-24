@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-PRE</title>
+    <script src="../vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+</head>
+<body>
+    <div id="directiva">
+<h2 v-pre >
+    {{message}}
+</h2>
+<p @click="alert('Hello World')" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora dolor odit iste doloremque repellat. Excepturi tempora ipsa doloremque fugit omnis et nisi, accusantium id, quo, qui illo. Ipsa, odit enim?
+
+</p>
+    </div>
+    <script>
+        let app = new Vue({
+el: '#directiva',
+data:{
+    message:'Eli No Treino'
+}
+
+        })
+    </script>
+</body>
+</html>

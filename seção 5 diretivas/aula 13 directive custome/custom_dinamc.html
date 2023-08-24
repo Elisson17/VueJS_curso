@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom directive</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+    <div id="directive">
+<h4 v-upper>{{name}}</h4>
+
+<h2 v-capitalize>hello world {{name}} </h2>
+<h2 v-customs:[argumento]="distance" >{{name}}</h2>
+    </div>
+    <script>
+//abaixo diretiva global não podem se juntar
+Vue.directive('upper',{
+    inserted(el){
+        el.innerText = el.innerText.toUpperCase();
+    }
+})
+
+
+function setDirection(element,binding){
+    element.style.margin = 0;
+
+let direction = binding.arg.toLowerCase();
+let value = binding.value;
+
+switch(direction ){
+    case 'left':
+        case'right':
+        case 'bottom':
+            case 'top':
+            
+                let newDirection = direction.charAt(0).toUpperCase() + direction.slice(1);
+      
+        
+                eval(`element.style.marginLeft = value +'px'`);
+
+        break;
+        default:console.error('Informae uma opção correta');
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+        let app = new Vue({
+el:'#directive',
+data:{
+    name:'Treino',
+    argumento:'left',
+    distance: 150
+},//abaixo diretiva local personalizada
+directives:{
+    /*
+    funçoes para diretivas
+    capitalize: 
+    {
+
+        bind(element){
+            console.log('Bind - foi vinculada')
+        },
+        inserted(element){
+console.log('Inserted - elemento inserido na página');
+              let words = element.innerText.split(' ');
+    
+        words.forEach((text,index)=>  {
+            text.charAt(0).toUpperCase() + text.slice(1);
+        });
+        element.innerText = words.join(' ');
+        }
+
+,
+    update(element){
+        console.log('UPDATE - o elemento foi  atualizado');
+    },unbind(element){
+        console.log('UNBIND - o elemento foi desviculado');
+
+    },componentUpdated(element){
+        console.log('Component - O componente foi atualizado');
+    }
+      */ customs: {
+bind(element,binding,vnode){
+},update(element,binding,vnode,oldvnode){
+    setDirection(element,binding);
+
+}
+    }
+    
+}
+        })
+    </script>
+
+
+</body>
+</html>

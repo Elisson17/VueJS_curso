@@ -1,0 +1,2 @@
+v pre para qualquer coisa do vue js
+o click não é pra funcionar msm
