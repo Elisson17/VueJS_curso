@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/vue.js"></script>
+    <title>Multiplos valores</title>
+</head>
+<body>
+
+
+
+    <div id="styles">
+    <a href="https://www.google.com.br" :style="{fontSize,colorStyle,linkStyle}">Treinin do elissão</a>
+ </div>   
+
+<script>
+let app = new Vue({
+el:'#styles',
+data:{
+fontSizeStyle:{
+    fontSize: '30px'
+},
+colorStyle:{
+color: 'red'
+},
+linkStyle:{
+textDecoration:'none'
+}
+
+}
+
+})
+</script>
+</body>
+</html>

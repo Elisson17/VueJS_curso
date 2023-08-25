@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicando estilização usando arrays</title>
+    <script src="../../vue.js"></script>
+   
+   
+   
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <style>
+        .selected{
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="style">
+
+<table class="table" >
+<tr v-for="city in cities" >
+    <!--<td v-bind:class="[selectedClass,statusClass]" >{{city}}</td> -->
+    <td v-bind:class="[selectedClass, error ? statusErrorClass : statusClass]" >{{city}}</td>
+</tr>
+
+</table>
+
+
+
+
+
+
+
+    </div>
+
+    <script>
+let app = new Vue({
+el:'#style'
+,data:{
+cities: ['orlando' ,'Londres', 'sidney' ],
+selectedClass:'selected',
+statusClass:'alert-success'
+,statusErrorClass:'alert-danger',
+error:false
+}
+
+
+
+})
+    </script>
+</body>
+</html>
