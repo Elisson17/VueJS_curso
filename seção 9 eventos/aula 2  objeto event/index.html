@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object event</title>
+    <script src="/vue.js"></script>
+</head>
+<body>
+
+<div id="event">
+
+<button v-on:click="call($event)" >pressione aqui</button>
+
+<hr>
+
+<a href="https://www.google.com.br" v-on:click="call($event)">Site maravilhoso</a>
+
+
+
+</div>
+
+
+
+    <script>
+
+        let app = new Vue({
+el:'#event',
+data:{
+
+},methods:{
+call(e){
+    e.preventDefault();
+    
+    console.log(e);
+}
+
+}
+
+        })
+    </script>
+</body>
+</html>

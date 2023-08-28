@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificadores de eventos</title>
+<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/vue.js"></script>
+</head>
+<body>
+    
+
+<div id="event">
+
+<div id="container">
+<h1>Treinamento</h1>
+
+<form action="" class="form">
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="">
+Nome
+            </label>
+                
+                <input type="text" placeholder="Digite seu nome" name="username" class="form-controls">
+            
+            </div>
+        </div>
+
+
+   
+        <div class="col">
+            <div class="form-group">
+                <label for="">
+Email
+                </label>
+                <input class="form-control" name="email" placeholder="Digite seu email" type="email">
+            </div>
+        </div>
+   
+    </div>
+    <div id="form-group">
+        <label for="">Digite sua mensagem</label>
+        <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <buttom @click.prevent="send($event)" type="submit" class="btn btn-primary">Enviar o formulário</buttom>
+</form>
+
+<hr>
+
+<a href="https://www.google.com.br" @click.prevent.once="alert('Ola')">
+apert aq
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+let app = new Vue({
+el:'#event',
+data:{
+
+},methods:{
+    send(event){
+        let form = event.target.form;
+        let data = new FormData(form);
+        for(let value of data.entries()){
+            console.log(value);
+        }
+        
+    }
+}
+
+
+})
+</script>
+
+
+</body>
+</html>

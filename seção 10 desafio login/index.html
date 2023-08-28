@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio do login</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/animate.css/animate.min.css">
+    <script src="/vue.js"></script>
+   <style> ul {
+    
+    
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    }
+    
+    li {
+    display: inline;
+    
+    float: right;
+    }
+    
+    li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    }
+    
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+    background-color: orangered;
+    }
+    </style>
+</head>
+<body>
+    <div id="all">
+    <head>
+        <ul>
+    
+            <li style="float:right;list-style-type: none;">
+                <a href="#" @click="butaoLogin" v-if="logador" key="logado">Login</a>
+    
+    
+                <div v-else key="naologado" style="text-align: center;">
+
+<label for="">
+    usúario
+</label>
+<input type="text" name="email" placeholder="Digite seu usúario">
+
+<label for="">Senha</label>
+<input type="password" name="pass" placeholder="Digite sua senha">
+
+
+                    <a href="#" @click="butaoLogin">Fazer Logout</a>
+                </div>
+            </li>
+    
+        </ul>
+    </head>
+
+
+</div>
+    <script>
+        let app = new Vue({
+el:'#all',
+data:{
+    logador: true
+}, methods: {
+                butaoLogin() {
+                    this.logador = !this.logador;
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

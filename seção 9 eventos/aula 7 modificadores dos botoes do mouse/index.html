@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/vue.js"></script>
+    <title>Modificadores de mouse</title>
+</head>
+<body>
+
+<div id="event">
+<form action="" class="form" v-on:submit.prevent>
+   <hr>
+
+    <div class="form-group">
+        <label for="">Pressione as teclas abaixo</label>
+        <input type="text" class="form-control" placeholder="Pressione o botão esquerdo do mouse" @click.left="exec">
+            <input type="text" class="form-control" placeholder="Pressione o botão direito do mouse" @click.prevent.right="exec">
+<!-- muito interessante isso do mouse-->
+    </div>
+    <hr>
+</form>
+
+
+</div>
+<script>
+    let app = new Vue({
+        el: '#event',
+        data: {
+
+        }, methods: {
+            exec(e){
+                console.log(e.type);
+            }
+        }
+
+
+    })
+</script>
+
+</body>
+</html>

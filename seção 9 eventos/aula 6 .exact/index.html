@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/vue.js"></script>
+    <title>Modificadores de teclado</title>
+</head>
+<body>
+
+<div id="event">
+<form action="" class="form" v-on:submit.prevent>
+   <hr>
+
+    <div class="form-group">
+        <label for="">Pressione as teclas abaixo</label>
+        <input type="text" class="form-control" placeholder="Pressione ctrl" @keydown.ctrl="exec">
+            <input type="text" class="form-control" placeholder="Pressione alt" @keydown.alt="exec">
+<!-- todos os @keyup a tecla sempre vai ser minuscula -->
+    </div>
+    <hr>
+</form>
+
+<div class="row">
+    <div class="col" @click.ctrl.exact="toggleClass" >1</div>
+    <div class="col" @click.ctrl.exact="toggleClass">2</div>
+    <div class="col" @click.ctrl.exact="toggleClass">3</div>
+    <div class="col" @click.ctrl.exact="toggleClass">4</div>
+</div>
+
+
+</div>
+<script>
+    let app = new Vue({
+        el: '#event',
+        data: {
+
+        }, methods: {
+            exec(e){
+                console.log(e.key);
+            },
+            toggleClass(event){
+                let el = event.target;
+                
+                let isClass = el.classList.contains('bg-info');
+                let method = (el.classList.contains('bg-info')) ?  'remove' : 'add' ;
+
+               eval(`el.classList.${method}('bg-info')`);
+            }
+        }
+
+
+    })
+</script>
+
+</body>
+</html>

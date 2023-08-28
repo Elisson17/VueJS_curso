@@ -9,13 +9,22 @@
 <body>
 <div id="events">
 <button v-on:click="" >Click aqui</button>
+<hr>
+
+<button v-on:dblclick="add">Treino</button>
+<h4>Você clicou no treino {{counter}} vezes</h4>
 </div>    
 
 <script>
 let app = new Vue({
 el:'#events',
 data:{
-
+counter:0
+},
+methods:{
+    add(){
+        this.counter+=2;
+    }
 }
 
 })

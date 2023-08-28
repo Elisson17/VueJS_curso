@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="/vue.js"></script>
+    <title>Modificadores de teclado</title>
+</head>
+<body>
+
+<div id="event">
+<form action="" class="form" v-on:submit.prevent>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="">
+                Nome
+            </label>
+
+            <input type="text" v-on:keyup.enter="send($event)" placeholder="Digite seu nome" name="username" class="form-controls">
+
+        </div>
+    </div><hr>
+
+    <div class="form-group">
+        <label for="">Pressione as teclas abaixo</label>
+        <input type="text" class="form-control" placeholder="Pressione enter" @keyup.enter="exec">
+            <input type="text" class="form-control" placeholder="Pressione Tab" @keyup.tab="exec">
+// todos os @keyup a tecla sempre vai ser minuscula
+    </div>
+    <hr>
+    
+</form>
+
+
+
+
+</div>
+<script>
+    let app = new Vue({
+        el: '#event',
+        data: {
+
+        }, methods: {
+            send(event) {
+                let form = event.target.form;
+                let data = new FormData(form);
+                for (let value of data.entries()) {
+                    console.log(value );
+                }
+
+            },exec(e){
+                console.log(e.key);
+            }
+        }
+
+
+    })
+</script>
+
+</body>
+</html>
